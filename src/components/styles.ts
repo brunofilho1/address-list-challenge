@@ -26,7 +26,6 @@ export const Main = styled.main`
     background-color: #F8F7FC;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 `
 
@@ -39,7 +38,7 @@ export const SearchDiv = styled.div`
 
     & i {
         position: fixed;
-        color: gray;
+        color: #BBB8D9;
         margin-left: 10px;
     }
 
@@ -47,7 +46,7 @@ export const SearchDiv = styled.div`
         border: 0;
         padding: 10px 40px;
         width: 100%;
-        border-bottom: 1px solid gray;
+        border-bottom: 2px solid #BBB8D9;
         outline: none;
         background-color: transparent;
     }
@@ -65,4 +64,63 @@ export const Button = styled.button`
         &:hover {
             background-color: #3d3691;
         }
+`;
+
+export const AddressType = styled.button`
+    padding: 5px 30px;
+    background-color: transparent;
+    border: 1px solid #4F46BB;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: .2s;
+`;
+
+export const AddressContainer = styled.div`
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+`;
+export const AddressCard = styled.div`
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(48, 46, 69, 0.06);
+    border-radius: 8px;
+    
+    .address-type-box {
+        display: flex;
+        gap: 10px;
+    }
+
+    div div {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 16px;
+
+        h1 {
+            font-size: 20px;
+        }
+
+        i {
+            font-size: 18px;
+            color: #4F46BB;
+            cursor: pointer;
+        }
+    }
+
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        color: #6D6C7B;
+    }
 `;
