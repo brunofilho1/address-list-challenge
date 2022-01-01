@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from './screens/home';
+import './styles/global.scss'
 
 function App() {
   return (
