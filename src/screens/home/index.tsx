@@ -1,6 +1,9 @@
 import React, { Fragment } from 'react';
 import { AddressCard, AddressContainer, AddressType, Button, Header, Main, SearchDiv } from '../../components/styles';
 
+import api from '../../services/adresses.json';
+var adresses = api.adresses;
+
 export default function Home() {
     return (
         <Fragment>
@@ -14,7 +17,7 @@ export default function Home() {
             </SearchDiv>
             <Main>
                 <AddressContainer>
-                    <AddressCard>
+                    {/* <AddressCard>
                         <div className='address-box'>
                             <div>
                                 <h1>Villega Vila Velha</h1>
@@ -27,35 +30,23 @@ export default function Home() {
                             <AddressType>Principal</AddressType>
                             <AddressType>Residencial</AddressType>
                         </div>
-                    </AddressCard>
-                    <AddressCard>
-                        <div className='address-box'>
-                            <div>
-                                <h1>Villega Vila Velha</h1>
-                                <i className="fas fa-pencil-alt"></i>
-                                <i className="fas fa-trash"></i>
+                    </AddressCard> */}
+                    {adresses.map(address => (
+                        <AddressCard>
+                            <div className='address-box'>
+                                <div>
+                                    <h1>{address.name}</h1>
+                                    <i className="fas fa-pencil-alt"></i>
+                                    <i className="fas fa-trash"></i>
+                                </div>
+                                <p>{address.address}</p>
                             </div>
-                            <p>Rua Dório Silva, 100 — Vila Guaranhuns, Vila Velha</p>
-                        </div>
-                        <div className='address-type-box'>
-                            <AddressType>Principal</AddressType>
-                            <AddressType>Residencial</AddressType>
-                        </div>
-                    </AddressCard>
-                    <AddressCard>
-                        <div className='address-box'>
-                            <div>
-                                <h1>Villega Vila Velha</h1>
-                                <i className="fas fa-pencil-alt"></i>
-                                <i className="fas fa-trash"></i>
+                            <div className='address-type-box'>
+                                <AddressType>Principal</AddressType>
+                                <AddressType>Residencial</AddressType>
                             </div>
-                            <p>Rua Dório Silva, 100 — Vila Guaranhuns, Vila Velha</p>
-                        </div>
-                        <div className='address-type-box'>
-                            <AddressType>Principal</AddressType>
-                            <AddressType>Residencial</AddressType>
-                        </div>
-                    </AddressCard>
+                        </AddressCard>
+                    ))}
                 </AddressContainer>
             </Main>
         </Fragment>

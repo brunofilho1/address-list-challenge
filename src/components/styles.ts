@@ -37,14 +37,14 @@ export const SearchDiv = styled.div`
     margin: 0 auto;
 
     & i {
-        position: fixed;
+        position: absolute;
         color: #BBB8D9;
         margin-left: 10px;
     }
 
     & input {
         border: 0;
-        padding: 10px 40px;
+        padding: 15px 40px;
         width: 100%;
         border-bottom: 2px solid #BBB8D9;
         outline: none;
@@ -78,7 +78,7 @@ export const AddressType = styled.button`
 export const AddressContainer = styled.div`
     width: 1000px;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     flex-direction: column;
     gap: 30px;
