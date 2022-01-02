@@ -22,7 +22,7 @@ export const Header = styled.header`
 
 export const Main = styled.main`
     width: 100%;
-    height: calc(100vh - 122px);
+    height: calc(100vh - 128px);
     background-color: #F8F7FC;
     display: flex;
     flex-direction: row;
@@ -73,6 +73,11 @@ export const AddressType = styled.button`
     border-radius: 100px;
     cursor: pointer;
     transition: .2s;
+
+    &.active {
+        background-color: #e0d9ff;
+        border: 0;
+    }
 `;
 
 export const AddressContainer = styled.div`
@@ -82,6 +87,12 @@ export const AddressContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    > button {
+        width: 191px;
+        padding: 10px 40px;
+        margin: 0 auto;
+    }
 `;
 export const AddressCard = styled.div`
     background-color: #fff;

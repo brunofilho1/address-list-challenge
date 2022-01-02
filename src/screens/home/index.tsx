@@ -31,8 +31,8 @@ export default function Home() {
                             <AddressType>Residencial</AddressType>
                         </div>
                     </AddressCard> */}
-                    {adresses.map(address => (
-                        <AddressCard>
+                    {adresses.slice(0, 4).map(address => (
+                        <AddressCard key={address.address}>
                             <div className='address-box'>
                                 <div>
                                     <h1>{address.name}</h1>
@@ -42,12 +42,13 @@ export default function Home() {
                                 <p>{address.address}</p>
                             </div>
                             <div className='address-type-box'>
-                                <AddressType>Principal</AddressType>
-                                <AddressType>Residencial</AddressType>
+                                <AddressType className={address.type == 'Principal' ? 'active' : 'address-type'}>Principal</AddressType>
+                                <AddressType className={address.type == 'Residencial' ? 'active' : 'address-type'}>Residencial</AddressType>
                             </div>
                         </AddressCard>
                     ))}
-                </AddressContainer>
+                    <Button>Carregar Mais</Button>
+                </AddressContainer>                
             </Main>
         </Fragment>
     )
