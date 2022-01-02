@@ -12,7 +12,26 @@ export const Header = styled.header`
 
     background-color: #fff;
 
-    & h1 {
+    a {
+        text-decoration: none;
+    }
+
+    div { 
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: all .3s;
+
+        &:hover {
+            gap: 17px;
+        }
+
+        i {
+            color: #4F46BB;
+        }
+    }
+
+    h1 {
         cursor: pointer;
         font-size: 24px;
         color: #4F46BB;
@@ -114,15 +133,17 @@ export const AddressCard = styled.div`
     div div {
         display: flex;
         align-items: center;
-        gap: 15px;
         margin-bottom: 16px;
 
         h1 {
             font-size: 20px;
+            margin-right: 10px;
         }
 
         i {
             font-size: 18px;
+            padding: 8px;
+            margin-right: 5px;
             color: #4F46BB;
             cursor: pointer;
         }
