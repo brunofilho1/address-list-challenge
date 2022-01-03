@@ -156,3 +156,44 @@ export const AddressCard = styled.div`
         color: #6D6C7B;
     }
 `;
+
+export const AddressForm = styled.div`
+    width: 622px;
+    height: 606px;
+    background-color: #fff;
+    border-radius: 8px;
+
+    padding: 60px 30px;
+    margin: 0 auto;
+    margin-top: 100px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    h1 {
+        font-size: 18px;
+    }
+
+    select, input, textarea {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid #BBB8D9;
+        padding: 10px 0px;
+        outline: 0;
+        resize: none;
+
+        font-size: 16px;
+        color: #302E45;
+    }
+
+    select option {
+        background-color: transparent;
+    }
+
+    button {
+        width: 159px;
+        height: 36px;
+        margin: 0 auto;
+    }
+`;
