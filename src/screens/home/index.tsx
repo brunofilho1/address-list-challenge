@@ -1,15 +1,12 @@
 import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AddressCard, AddressContainer, AddressType, Button, Header, Main, SearchDiv } from '../../components/styles';
-
 import api from '../../services/adresses.json';
-var adressesApi = api.adresses;
-console.log(adressesApi);
 
 export default function HomeScreen() {
 
-    var lastIndex = adressesApi.length;
-    var beforeLastIndex = lastIndex - 4;
+    const [adresses, setAdresses] = useState(api.adresses)
+    console.log(adresses);
 
     return (
         <Fragment>
@@ -23,8 +20,9 @@ export default function HomeScreen() {
             </SearchDiv>
             <Main>
                 <AddressContainer>
-                    {adressesApi.slice(beforeLastIndex, lastIndex).reverse().map(address => (
-                        <AddressCard key={address.address} title={`Endereço ${address.name}`}>
+                    {adresses.slice().reverse().map(address => (
+                        <AddressCard key={address.address} title={`Endereço ${address.name}`} >
+                            <h2>Nenhum endereço ainda...<i className="fas fa-map-marked-alt"></i></h2>
                             <div className='address-box'>
                                 <div>
                                     <h1>{address.name}</h1>
@@ -35,12 +33,8 @@ export default function HomeScreen() {
                             </div>
                             <div className='address-type-box'>
                                 <AddressType 
-                                className={address.type == 'Principal' ? 'active' : 'address-type'}
-                                title='Endereço Principal'>Principal</AddressType>
-
-                                <AddressType 
-                                className={address.type == 'Residencial' ? 'active' : 'address-type'}
-                                title='Endereço Residencial'>Residencial</AddressType>
+                                className='active'
+                                title='Endereço Principal'>{address.type}</AddressType>
                             </div>
                         </AddressCard>
                     ))}

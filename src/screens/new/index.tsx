@@ -1,15 +1,16 @@
 import React, { Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Header, Main, AddressForm } from '../../components/styles';
-
 import api from '../../services/adresses.json';
 var adresses = api.adresses;
+
 
 export default function NewAddressScreen() {
 
     var navigate = useNavigate();
 
     function registerAddress() {
+
         var select = document.getElementById("addressType") as HTMLSelectElement;
         var addressType = select?.options[select.selectedIndex].value;
         var name = document.getElementById('name') as HTMLInputElement;

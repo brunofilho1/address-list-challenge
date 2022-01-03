@@ -112,6 +112,14 @@ export const AddressContainer = styled.div`
         padding: 10px 40px;
         margin: 0 auto;
     }
+
+    h2, > i {
+        display: none;
+    }
+
+    .hiddenThisElement {
+        display: none;
+    }
 `;
 export const AddressCard = styled.div`
     background-color: #fff;
