@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AddressCard, AddressContainer, AddressType, Button, Header, Main, SearchDiv } from '../../components/styles';
 
 import api from '../../services/adresses.json';
-var adresses = api.adresses;
+var adressesApi = api.adresses;
+console.log(adressesApi);
 
 export default function HomeScreen() {
+
+    var lastIndex = adressesApi.length;
+    var beforeLastIndex = lastIndex - 4;
+
     return (
         <Fragment>
             <Header>
@@ -18,7 +23,7 @@ export default function HomeScreen() {
             </SearchDiv>
             <Main>
                 <AddressContainer>
-                    {adresses.slice(0, 4).map(address => (
+                    {adressesApi.slice(beforeLastIndex, lastIndex).reverse().map(address => (
                         <AddressCard key={address.address} title={`Endereço ${address.name}`}>
                             <div className='address-box'>
                                 <div>
@@ -40,7 +45,7 @@ export default function HomeScreen() {
                         </AddressCard>
                     ))}
                     <Button title='Mostrar mais endereços'>Carregar Mais</Button>
-                </AddressContainer>                
+                </AddressContainer>
             </Main>
         </Fragment>
     )

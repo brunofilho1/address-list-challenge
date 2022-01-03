@@ -5,36 +5,7 @@
             "name": "Villega Vila Velha",
             "zip": "03207-020",
             "address": "Rua Dório Silva, 100 — Vila Guaranhuns, Vila Velha"
-        },
-        {
-            "type": "Residencial",
-            "name": "Loja na Santos Dumont",
-            "zip": "72932-677",
-            "address": "Rua Santos Dumont, 3241 — São José, São Gonçalo"
-        },
-        {
-            "type": "Principal",
-            "name": "Rua Paraguai",
-            "zip": "29144-336",
-            "address": "Rua Paraguai, 434 — Campina Grande, Cariacica"
-        },
-        {
-            "type": "Residencial",
-            "name": "Comércio na Rua Larcy Costa",
-            "zip": "29314-860",
-            "address": "Rua Larcy Costa, 120 — São Joaquim, Cachoeiro de Itapemirim"
-        },
-        {
-            "type": "Residencial",
-            "name": "Avenida da Praia do Canto",
-            "zip": "29055-722",
-            "address": "Avenida Desembargador Santos Neves, 560 — Praia do Canto, Vitória"
-        },
-        {
-            "type": "Residencial",
-            "name": "Villega Vila Velha",
-            "zip": "29909-200",
-            "address": "Rua Ângelo Bergamin, 11 — Canivete, Linhares"
         }
+
     ]
 }
