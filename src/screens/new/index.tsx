@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Header, Main, AddressForm } from '../../components/styles';
+import {hideMessage} from '../home'
 import api from '../../services/adresses.json';
 var adresses = api.adresses;
 
@@ -10,6 +11,8 @@ export default function NewAddressScreen() {
     var navigate = useNavigate();
 
     function registerAddress() {
+
+        hideMessage()
 
         var select = document.getElementById("addressType") as HTMLSelectElement;
         var addressType = select?.options[select.selectedIndex].value;

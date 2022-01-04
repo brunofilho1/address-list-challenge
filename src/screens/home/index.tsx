@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import { AddressCard, AddressContainer, AddressType, Button, Header, Main, SearchDiv } from '../../components/styles';
 import api from '../../services/adresses.json';
 
+var messageCard = document.querySelector('.messageCard')
+export function hideMessage() {
+    messageCard?.classList.add('hideThisElement');
+    messageCard?.classList.remove('messageCard');
+    console.log(messageCard);
+}
+
 export default function HomeScreen() {
 
     const [adresses, setAdresses] = useState(api.adresses)
@@ -21,7 +28,7 @@ export default function HomeScreen() {
             <Main>
                 <AddressContainer>
                     {adresses.slice().reverse().map(address => (
-                        <AddressCard key={address.address} title={`Endereço ${address.name}`} >
+                        <AddressCard key={address.address} title={`Endereço ${address.name}`} className={address.zip == '0g025398jJI#55jJKjjjs%' && adresses.length == 1 ? 'messageCard' : address.zip == '0g025398jJI#55jJKjjjs%' && adresses.length > 1 ? 'hideThisElement' : ''}>
                             <h2>Nenhum endereço ainda...<i className="fas fa-map-marked-alt"></i></h2>
                             <div className='address-box'>
                                 <div>

@@ -117,8 +117,31 @@ export const AddressContainer = styled.div`
         display: none;
     }
 
-    .hiddenThisElement {
+    .hideThisElement {
         display: none;
+
+    } .messageCard {
+        h2 {
+            display: flex;
+            visibility: visible;
+            margin: 0 auto;
+            align-items: center;
+            gap: 30px;
+
+            i {
+                color: #4F46BB;
+            }
+            
+        }
+
+        div div i {
+            display: block;
+            visibility: visible;
+        }
+
+        .address-type-box, div, p {
+            display: none;
+        }
     }
 `;
 export const AddressCard = styled.div`
