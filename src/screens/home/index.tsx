@@ -7,13 +7,24 @@ var messageCard = document.querySelector('.messageCard')
 export function hideMessage() {
     messageCard?.classList.add('hideThisElement');
     messageCard?.classList.remove('messageCard');
-    console.log(messageCard);
 }
 
 export default function HomeScreen() {
 
-    const [adresses, setAdresses] = useState(api.adresses)
-    console.log(adresses);
+    const [adresses, setAdresses] = useState(api.adresses);
+    const [selectedCard, setSelectedCard] = useState({});
+
+    function selectThisCard(address: object) {
+        const addressSelected = adresses.find(addressList => addressList == address);
+        const addressSelectedIndex = adresses.indexOf(Object(addressSelected));
+        
+        localStorage.setItem('index', String(addressSelectedIndex));
+        localStorage.setItem('type', addressSelected!.type);
+        localStorage.setItem('name', addressSelected!.name);
+        localStorage.setItem('zip', addressSelected!.zip);
+        localStorage.setItem('address', addressSelected!.address);
+    }
+    
 
     return (
         <Fragment>
@@ -33,7 +44,11 @@ export default function HomeScreen() {
                             <div className='address-box'>
                                 <div>
                                     <h1>{address.name}</h1>
-                                    <Link to="/edit"><i className="fas fa-pencil-alt" title='Editar endereço'></i></Link>
+                                    <Link to="/edit">
+                                    <i onClick={() => {
+                                        selectThisCard(address);
+                                        }} className="fas fa-pencil-alt" title='Editar endereço'></i>
+                                    </Link>
                                     <i className="fas fa-trash" title='Deletar endereço'></i>
                                 </div>
                                 <p>{address.address}</p>
@@ -51,3 +66,4 @@ export default function HomeScreen() {
         </Fragment>
     )
 }
+
