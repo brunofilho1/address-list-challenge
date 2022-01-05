@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Fragment, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AddressCard, AddressContainer, AddressType, Button, Header, Main, SearchDiv } from '../../components/styles';
 import api from '../../services/adresses.json';
 
@@ -11,8 +11,20 @@ export function hideMessage() {
 
 export default function HomeScreen() {
 
+    var navigate = useNavigate();
+
     const [adresses, setAdresses] = useState(api.adresses);
     const [selectedCard, setSelectedCard] = useState({});
+
+    function deleteThisCard(address: object) {
+        const addressSelected = adresses.find(addressList => addressList == address);
+        const addressSelectedIndex = adresses.indexOf(Object(addressSelected));
+
+        adresses.splice(addressSelectedIndex, 1);
+
+        navigate('/')
+
+    }
 
     function selectThisCard(address: object) {
         const addressSelected = adresses.find(addressList => addressList == address);
@@ -25,6 +37,9 @@ export default function HomeScreen() {
         localStorage.setItem('address', addressSelected!.address);
     }
     
+    useEffect(() => {
+        
+    })
 
     return (
         <Fragment>
@@ -49,7 +64,7 @@ export default function HomeScreen() {
                                         selectThisCard(address);
                                         }} className="fas fa-pencil-alt" title='Editar endereço'></i>
                                     </Link>
-                                    <i className="fas fa-trash" title='Deletar endereço'></i>
+                                    <i className="fas fa-trash" title='Deletar endereço' onClick={() => deleteThisCard(address)}></i>
                                 </div>
                                 <p>{address.address}</p>
                             </div>
