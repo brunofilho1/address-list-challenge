@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+/******** Components ********/
+
 export const Header = styled.header`
     width: 100%;
     height: 40px;
@@ -37,6 +39,17 @@ export const Header = styled.header`
         color: #4F46BB;
     }
 
+    @media screen and (max-width: 1100px) {
+        & {
+            padding: 40px 5%;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        & {
+            padding: 40px 5%;
+        }
+    }
+
 `
 
 export const Main = styled.main`
@@ -46,14 +59,35 @@ export const Main = styled.main`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
 `
 
+export const Button = styled.button`
+    padding: 5px 30px;
+    background-color: #4F46BB;
+    border: 0;
+    border-radius: 100px;
+    color: white;
+    cursor: pointer;
+    transition: .2s;
+
+        &:hover {
+            background-color: #3d3691;
+        }
+`;
+
+/******** Components ********/
+
+
+/******** Home Page ********/
+
 export const SearchDiv = styled.div`
-    width: 1000px;
+    max-width: 1000px;
     display: flex;
     align-items: center;
     justify-content: left;
     margin: 0 auto;
+    padding: 0px 10px;
 
     & i {
         position: absolute;
@@ -70,20 +104,6 @@ export const SearchDiv = styled.div`
         background-color: transparent;
     }
 `
-
-export const Button = styled.button`
-    padding: 5px 30px;
-    background-color: #4F46BB;
-    border: 0;
-    border-radius: 100px;
-    color: white;
-    cursor: pointer;
-    transition: .2s;
-
-        &:hover {
-            background-color: #3d3691;
-        }
-`;
 
 export const AddressType = styled.button`
     padding: 5px 30px;
@@ -186,7 +206,30 @@ export const AddressCard = styled.div`
         font-size: 14px;
         color: #6D6C7B;
     }
+
+    @media screen and (max-width: 450px) {
+        & {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            margin: 10px;
+            
+            .address-type-box {
+                display: block;
+            }
+
+            div div {
+                margin-bottom: 0px;
+            }
+        }
+    }
 `;
+
+/******** Home Page ********/
+
+
+/******** New/Edit Address Page ********/
 
 export const AddressForm = styled.div`
     width: 622px;
@@ -227,4 +270,17 @@ export const AddressForm = styled.div`
         height: 36px;
         margin: 0 auto;
     }
+
+    @media screen and (max-height: 915px) {
+        & {
+            margin-top: 30px;
+        }
+    }
+    @media screen and (max-width: 700px) {
+        & {
+            width: 322px;
+        }
+    }
 `;
+
+/******** New/Edit Address Page ********/

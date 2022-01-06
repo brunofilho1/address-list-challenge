@@ -12,29 +12,15 @@ export function hideMessage() {
 export default function HomeScreen() {
 
     var navigate = useNavigate();
-
     const [adresses, setAdresses] = useState(api.adresses);
-    const [selectedCard, setSelectedCard] = useState({});
-    const [showMoreCard, setShowMoreCard] = useState(4);
 
-    var lastIndex = adresses.length;
-    var beforeLastIndex = lastIndex - showMoreCard;
-
-    function showMore() {
-        setShowMoreCard(showMoreCard + 2);
-        console.log(showMoreCard);
-
-        navigate('/');
-    }
-
-    function deleteThisCard(address: object) {
+     function deleteThisCard(address: object) {
         const addressSelected = adresses.find(addressList => addressList == address);
         const addressSelectedIndex = adresses.indexOf(Object(addressSelected));
 
         adresses.splice(addressSelectedIndex, 1);
 
         navigate('/')
-
     }
 
     function selectThisCard(address: object) {
@@ -60,7 +46,7 @@ export default function HomeScreen() {
             </SearchDiv>
             <Main>
                 <AddressContainer>
-                    {adresses.slice(beforeLastIndex, lastIndex).reverse().map(address => (
+                    {adresses.slice().reverse().map(address => (
                         <AddressCard key={address.address} title={`Endereço ${address.name}`} className={address.zip == '0g025398jJI#55jJKjjjs%' && adresses.length == 1 ? 'messageCard' : address.zip == '0g025398jJI#55jJKjjjs%' && adresses.length > 1 ? 'hideThisElement' : ''}>
                             <h2>Nenhum endereço ainda...<i className="fas fa-map-marked-alt"></i></h2>
                             <div className='address-box'>
@@ -82,10 +68,9 @@ export default function HomeScreen() {
                             </div>
                         </AddressCard>
                     ))}
-                    <Button title='Mostrar mais endereços' onClick={showMore}>Carregar Mais</Button>
+                    <Button title='Mostrar mais endereços'>Carregar Mais</Button>
                 </AddressContainer>
             </Main>
         </Fragment>
     )
 }
-
